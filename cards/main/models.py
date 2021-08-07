@@ -190,11 +190,14 @@ class User(models.Model):
         verbose_name_plural = "Пользователи"
 
     def Test(self):
+        import qrcode
         id = self.id
         strid = str(id)
 
         url = "http://127.0.0.1:8000/user/"
         furl = url + strid
+        img = qrcode.make(furl)
+        img.save('myqrcode.png')
 
 
         a = 500
@@ -202,7 +205,7 @@ class User(models.Model):
         cc = strid + aa
         id1 = cc
 
-        return furl
+        return id1
 class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
