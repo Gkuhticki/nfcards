@@ -14,7 +14,7 @@ def home(request):
 def user_page(request, id):
     get_user = User.objects.get(id=id)
     context = {
-        'get_user':get_user
+        'get_user': get_user
     }
 
     template = 'user.html'
