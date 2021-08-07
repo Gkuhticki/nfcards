@@ -1,5 +1,8 @@
 from django.db import models
-from PIL import Image
+from django.core.files import File
+from PIL import Image, ImageDraw
+import qrcode
+from io import BytesIO
 # Create your models here.
 class User(models.Model):
     POWER = [
@@ -52,7 +55,7 @@ class User(models.Model):
     ]
     id_onyx = models.CharField(max_length=3, verbose_name="ID на Onyx-realty")
     contact = models.CharField(max_length=255, verbose_name="Ссылка на скачивание контакта")
-    qr = models.CharField(max_length=25,verbose_name="QR code")
+    qr_code = models.ImageField(upload_to="main/static/images/griming/", blank=True)
     photo = models.ImageField(verbose_name="Фото сотрудника", upload_to="main/static/images/user")
 
     name = models.CharField(max_length=50, verbose_name="Имя")
@@ -189,23 +192,25 @@ class User(models.Model):
         verbose_name="страничку пользователя"
         verbose_name_plural = "Пользователи"
 
-    def Test(self):
-        import qrcode
-        id = self.id
-        strid = str(id)
+    # def Test(self):
+    #     id = self.id
+    #     strid = str(id)
+    #
+    #     url = "http://127.0.0.1:8000/user/"
+    #     furl = url + strid
+    #     img = qrcode.make(furl)
+    #     img.save('myqrcode.png')
+    #
+    #
+    #     a = 500
+    #     aa = str(a)
+    #     cc = strid + aa
+    #     id1 = cc
+    #
+    #     return id1
 
-        url = "http://127.0.0.1:8000/user/"
-        furl = url + strid
-        img = qrcode.make(furl)
-        img.save('myqrcode.png')
-
-
-        a = 500
-        aa = str(a)
-        cc = strid + aa
-        id1 = cc
-
-        return id1
+    def save(self, *args, **kwargs):
+        pass
 class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
