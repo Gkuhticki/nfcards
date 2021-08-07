@@ -210,7 +210,24 @@ class User(models.Model):
     #     return id1
 
     def save(self, *args, **kwargs):
-        pass
+        id = self.id
+        strid = str(id)
+
+        url = "http://127.0.0.1:8000/user/"
+        furl = url + strid
+        qrcode_img = qrcode.make(furl)
+        canvas = Image.new('RGB', (390, 390), 'white')
+        draw = ImageDraw.Draw(canvas)
+        canvas.paste(qrcode_img)
+        fname = f'qr_code-{self.id}.png'
+        buffer = BytesIO()
+        canvas.save(buffer, 'PNG')
+        self.qr_code.save(fname, File(buffer), save=False)
+        canvas.close()
+        super().save(*args, **kwargs)
+
+
+
 class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)

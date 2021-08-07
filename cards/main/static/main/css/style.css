@@ -50,7 +50,11 @@ body {
     margin-bottom: 8px;
 }
 
-
+.qr_img {
+    display: none;
+    width: 190px;
+    height: 190px;
+}
 /*Заголовок компании*/
 .main_name_company {
     font-size: 40px;
