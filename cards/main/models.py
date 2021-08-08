@@ -61,7 +61,7 @@ class User(models.Model):
     name = models.CharField(max_length=50, verbose_name="Имя")
     job = models.CharField(max_length=255, verbose_name="Должность")
     text = models.TextField(verbose_name="Текст")
-
+    file = models.FileField(blank=True)
 
 
 
