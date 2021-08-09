@@ -62,7 +62,7 @@ class User(models.Model):
     # Поле id_onyx необходимо для создания ссылки на страницу пользователя на другом сайте
     id_onyx = models.CharField(max_length=3, verbose_name="ID на Onyx-realty")
     # Поле file берет данные с функции save ниже
-    file = models.FileField(blank=True)
+    contact = models.FileField(blank=True)
     # Поле qr_code берет данные с функции save ниже
     qr_code = models.ImageField(upload_to="main/static/images/griming/", blank=True)
     photo = models.ImageField(verbose_name="Фото сотрудника", upload_to="main/static/images/user")
@@ -70,7 +70,7 @@ class User(models.Model):
     name = models.CharField(max_length=50, verbose_name="Имя")
     job = models.CharField(max_length=255, verbose_name="Должность")
     text = models.TextField(verbose_name="Текст")
-    file = models.FileField(blank=True)
+
     email = models.CharField(max_length=255, default="reception@onyx-realty.ru")
     phone = models.CharField(max_length=25, default="89996555555")
 
@@ -103,9 +103,8 @@ class User(models.Model):
         self.qr_code.save(name_of_qrcode, File(buffer), save=False)
         canvas.close()
 
-        # Передаем данные в .
-
-        myfile = ContentFile(
+        # Передаем данные в contact.
+        template_for_contact = ContentFile(
             f"""\
 BEGIN:VCARD
 VERSION:3.0
@@ -123,6 +122,7 @@ CATEGORIES:myContacts
 END:VCARD
 """
         )
-        new_name = "contacts.vcf"
-        self.file.save(new_name, File(myfile), save=False)
+        name_of_contact = "contacts.vcf"
+        self.contact.save(name_of_contact, File(template_for_contact), save=False)
+
         super().save(*args, **kwargs)
