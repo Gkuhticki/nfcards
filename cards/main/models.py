@@ -58,22 +58,23 @@ class User(models.Model):
         ("https://", "Ссылка")
     ]
     # Поле my_id создаеться по причине того что пока не получилось вытащить поле id через self в функцию save ниже.
-    my_id = models.CharField(max_length=5, verbose_name="ID Страницы")
     # Поле id_onyx необходимо для создания ссылки на страницу пользователя на другом сайте
-    id_onyx = models.CharField(max_length=3, verbose_name="ID на Onyx-realty")
-    # Поле file берет данные с функции save ниже
-    contact = models.FileField(blank=True)
+    # Поле contact берет данные с функции save ниже
     # Поле qr_code берет данные с функции save ниже
-    qr_code = models.ImageField(upload_to="main/static/images/griming/", blank=True)
-    photo = models.ImageField(verbose_name="Фото сотрудника", upload_to="main/static/images/user")
+    my_id = models.CharField(max_length=5, verbose_name="ID Страницы на сайте")
+    id_onyx = models.CharField(max_length=3, verbose_name="ID на Onyx-realty")
+    contact = models.FileField(blank=True, verbose_name="Контакт VCF Заполняется автоматически")
+    qr_code = models.ImageField(upload_to="main/static/images/griming/",
+                                blank=True, verbose_name="qr code Заполняется автоматически")
+    photo = models.ImageField(upload_to="main/static/images/user", verbose_name="Фото сотрудника")
 
     name = models.CharField(max_length=50, verbose_name="Имя")
     job = models.CharField(max_length=255, verbose_name="Должность")
-    text = models.TextField(verbose_name="Текст")
+    text = models.TextField(verbose_name="Описание")
+    email = models.CharField(max_length=55, default="reception@onyx-realty.ru")
+    phone = models.CharField(max_length=25, default="89882360607")
 
-    email = models.CharField(max_length=255, default="reception@onyx-realty.ru")
-    phone = models.CharField(max_length=25, default="89996555555")
-
+    # Далее пошли кнопки
     b1_power = models.CharField(("Включение кнопки 1"), choices=POWER, max_length=255, blank=False,
                                 default="display: none;")
     b1_color = models.CharField(("Цвет кнопки"), choices=COLOR, max_length=255, blank=False,
