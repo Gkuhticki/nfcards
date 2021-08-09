@@ -57,8 +57,13 @@ class User(models.Model):
         ("https://ru.linkedin.com", "Linkedin"),
         ("https://", "Ссылка")
     ]
+    # Поле my_id создаеться по причине того что пока не получилось вытащить поле id через self в функцию save ниже.
+    my_id = models.CharField(max_length=5, verbose_name="ID Страницы")
+    # Поле id_onyx необходимо для создания ссылки на страницу пользователя на другом сайте
     id_onyx = models.CharField(max_length=3, verbose_name="ID на Onyx-realty")
-    contact = models.CharField(max_length=255, verbose_name="Ссылка на скачивание контакта")
+    # Поле file берет данные с функции save ниже
+    file = models.FileField(blank=True)
+    # Поле qr_code берет данные с функции save ниже
     qr_code = models.ImageField(upload_to="main/static/images/griming/", blank=True)
     photo = models.ImageField(verbose_name="Фото сотрудника", upload_to="main/static/images/user")
 
@@ -87,56 +92,18 @@ class User(models.Model):
         verbose_name_plural = "Пользователи"
 
     def save(self, *args, **kwargs):
-        id = self.id_onyx
-        strid = str(id)
-
-        url = "http://127.0.0.1:8000/user/"
-        furl = url + strid
-        qrcode_img = qrcode.make(furl)
+        # Передаем данные в qr_code.
+        url = f"http://127.0.0.1:8000/user/{self.my_id}"
+        qrcode_img = qrcode.make(url)
         canvas = Image.new('RGB', (390, 390), 'white')
-        draw = ImageDraw.Draw(canvas)
         canvas.paste(qrcode_img)
-        fname = f'qr_code-{id}.png'
+        name_of_qrcode = f'qr_code-{self.my_id}.png'
         buffer = BytesIO()
         canvas.save(buffer, 'PNG')
-        self.qr_code.save(fname, File(buffer), save=False)
+        self.qr_code.save(name_of_qrcode, File(buffer), save=False)
         canvas.close()
 
-
-
-
-        # family = self.name
-        # email = self.email
-        # tel = self.phone
-        # title = "Риэлтор Оникс Недвижимость"
-        #
-        # j = vobject.vCard()
-        # j.add('n')
-        # j.n.value = vobject.vcard.Name(family=family, given='')
-        # j.add('fn')
-        # j.fn.value = family
-        #
-        # j.add('email')
-        # j.email.value = email
-        # j.email.type_param = 'INTERNET'
-        #
-        # j.add('tel')
-        # j.tel.value = tel
-        # j.tel.type_param = 'VOICE'
-        #
-        # j.add('title')
-        # j.title.value = title
-        # j.title.type_param = 'TITLE'
-        #
-        # vcard = j
-        # vcard.name = 'VCARD'
-        # vcard.useBegin = True
-        #
-        # myfile = ContentFile(vcard.prettyPrint())
-        # new_name = "new_name.vcf"
-        # self.file.save(new_name, File(myfile), save=False)
-
-
+        # Передаем данные в .
 
         myfile = ContentFile(
             f"""\
