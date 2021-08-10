@@ -72,7 +72,7 @@ class User(models.Model):
     job = models.CharField(max_length=255, verbose_name="Должность")
     text = models.TextField(verbose_name="Описание")
     email = models.CharField(max_length=55, default="reception@onyx-realty.ru")
-    phone = models.CharField(max_length=25, default="89882360607")
+    phone = models.CharField("Телефон", max_length=25, default="89882360607")
 
     # Далее пошли кнопки
     # По умолчанию первая кнопка телефон
