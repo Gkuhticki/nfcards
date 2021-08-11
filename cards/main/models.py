@@ -8,7 +8,7 @@ from django.core.files.base import ContentFile, File
 
 
 # Create your models here.
-class User(models.Model):
+class Page_user(models.Model):
     POWER = [
         ("display: none;", "Выключить"),
         ("display: flex;", "Включить")

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
-    <title>{{get_user.name}}</title>
+    <title>{{get_Page_user.name}}</title>
 </head>
 <body class="body_container" >
     <svg width="0" height="0" class="hidden">
@@ -103,9 +103,9 @@
         <!--Здесь должны быть кнопки шапки-->
         <div class="mini_flex_container">
             <div class="main_header">
-                <a href="{{get_user.contact.url}}" download=""><svg class="top_icon" ><use xlink:href="#contacts"></use></svg></a>
+                <a href="{{get_Page_user.contact.url}}" download=""><svg class="top_icon" ><use xlink:href="#contacts"></use></svg></a>
                 <a href="#popup"><svg class="top_icon" ><use xlink:href="#qr_code"></use></svg></a>
-                <a href="https://onyx-realty.ru/company/staff/detail.php?uid={{get_user.id_onyx}}">
+                <a href="https://onyx-realty.ru/company/staff/detail.php?uid={{get_Page_user.id_onyx}}">
                     <svg class="top_icon" ><use xlink:href="#apartments"></use></svg></a>
             </div>
         </div>
@@ -113,15 +113,15 @@
         <div class="mini_flex_container">
             <div class="main_avatar">
                 <a href=""><img src="{% static 'main/images/logo.png' %}" class="logo photo" alt=""></a>
-                <a href=""><img src="{{get_user.photo.url}}" class="ava photo" alt=""></a>
+                <a href=""><img src="{{get_Page_user.photo.url}}" class="ava photo" alt=""></a>
             </div>
         </div>
         <!--Здесь вступительный текст Можно кстати сделать текст со спойлером-->
         <div class="mini_flex_container">
             <div class="main_info">
-                <H2 class="h2 text">{{get_user.name}}</H2>
-                <H4 class="h4 text">{{get_user.job}}</H4>
-                <p class="p text">{{get_user.text}}</p>
+                <H2 class="h2 text">{{get_Page_user.name}}</H2>
+                <H4 class="h4 text">{{get_Page_user.job}}</H4>
+                <p class="p text">{{get_Page_user.text}}</p>
             </div>
         </div>
         <!--Горизонтальная линия-->
@@ -132,109 +132,109 @@
         <!--Сами кнопки-->
         <div class="mini_flex_container">
             <div class="main_buttons">
-                <a class="button" href="{{get_user.b1_api_cho}}{{get_user.b1_api_inp}}" style="{{get_user.b1_power}} {{get_user.b1_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b1_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b1_api_cho}}{{get_Page_user.b1_api_inp}}" style="{{get_Page_user.b1_power}} {{get_Page_user.b1_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b1_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b1_title}}</div>
-                        <div class="p_in_button">{{get_user.b1_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b1_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b1_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b2_api_cho}}{{get_user.b2_api_inp}}" style="{{get_user.b2_power}} {{get_user.b2_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b2_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b2_api_cho}}{{get_Page_user.b2_api_inp}}" style="{{get_Page_user.b2_power}} {{get_Page_user.b2_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b2_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b2_title}}</div>
-                        <div class="p_in_button">{{get_user.b2_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b2_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b2_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b3_api_cho}}{{get_user.b3_api_inp}}" style="{{get_user.b3_power}} {{get_user.b3_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b3_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b3_api_cho}}{{get_Page_user.b3_api_inp}}" style="{{get_Page_user.b3_power}} {{get_Page_user.b3_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b3_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b3_title}}</div>
-                        <div class="p_in_button">{{get_user.b3_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b3_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b3_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b4_api_cho}}{{get_user.b4_api_inp}}" style="{{get_user.b4_power}} {{get_user.b4_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b4_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b4_api_cho}}{{get_Page_user.b4_api_inp}}" style="{{get_Page_user.b4_power}} {{get_Page_user.b4_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b4_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b4_title}}</div>
-                        <div class="p_in_button">{{get_user.b4_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b4_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b4_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b5_api_cho}}{{get_user.b5_api_inp}}" style="{{get_user.b5_power}} {{get_user.b5_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b5_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b5_api_cho}}{{get_Page_user.b5_api_inp}}" style="{{get_Page_user.b5_power}} {{get_Page_user.b5_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b5_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b5_title}}</div>
-                        <div class="p_in_button">{{get_user.b5_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b5_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b5_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b6_api_cho}}{{get_user.b6_api_inp}}" style="{{get_user.b6_power}} {{get_user.b6_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b6_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b6_api_cho}}{{get_Page_user.b6_api_inp}}" style="{{get_Page_user.b6_power}} {{get_Page_user.b6_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b6_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b6_title}}</div>
-                        <div class="p_in_button">{{get_user.b6_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b6_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b6_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b7_api_cho}}{{get_user.b7_api_inp}}" style="{{get_user.b7_power}} {{get_user.b7_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b7_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b7_api_cho}}{{get_Page_user.b7_api_inp}}" style="{{get_Page_user.b7_power}} {{get_Page_user.b7_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b7_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b7_title}}</div>
-                        <div class="p_in_button">{{get_user.b7_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b7_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b7_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b8_api_cho}}{{get_user.b8_api_inp}}" style="{{get_user.b8_power}} {{get_user.b8_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b8_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b8_api_cho}}{{get_Page_user.b8_api_inp}}" style="{{get_Page_user.b8_power}} {{get_Page_user.b8_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b8_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b8_title}}</div>
-                        <div class="p_in_button">{{get_user.b8_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b8_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b8_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b9_api_cho}}{{get_user.b9_api_inp}}" style="{{get_user.b9_power}} {{get_user.b9_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b9_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b9_api_cho}}{{get_Page_user.b9_api_inp}}" style="{{get_Page_user.b9_power}} {{get_Page_user.b9_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b9_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b9_title}}</div>
-                        <div class="p_in_button">{{get_user.b9_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b9_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b9_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b10_api_cho}}{{get_user.b10_api_inp}}" style="{{get_user.b10_power}} {{get_user.b10_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b10_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b10_api_cho}}{{get_Page_user.b10_api_inp}}" style="{{get_Page_user.b10_power}} {{get_Page_user.b10_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b10_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b10_title}}</div>
-                        <div class="p_in_button">{{get_user.b10_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b10_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b10_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b11_api_cho}}{{get_user.b11_api_inp}}" style="{{get_user.b11_power}} {{get_user.b11_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b11_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b11_api_cho}}{{get_Page_user.b11_api_inp}}" style="{{get_Page_user.b11_power}} {{get_Page_user.b11_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b11_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b11_title}}</div>
-                        <div class="p_in_button">{{get_user.b11_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b11_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b11_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b12_api_cho}}{{get_user.b12_api_inp}}" style="{{get_user.b12_power}} {{get_user.b12_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b12_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b12_api_cho}}{{get_Page_user.b12_api_inp}}" style="{{get_Page_user.b12_power}} {{get_Page_user.b12_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b12_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b12_title}}</div>
-                        <div class="p_in_button">{{get_user.b12_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b12_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b12_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b13_api_cho}}{{get_user.b13_api_inp}}" style="{{get_user.b13_power}} {{get_user.b13_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b13_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b13_api_cho}}{{get_Page_user.b13_api_inp}}" style="{{get_Page_user.b13_power}} {{get_Page_user.b13_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b13_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b13_title}}</div>
-                        <div class="p_in_button">{{get_user.b13_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b13_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b13_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b14_api_cho}}{{get_user.b14_api_inp}}" style="{{get_user.b14_power}} {{get_user.b14_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b14_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b14_api_cho}}{{get_Page_user.b14_api_inp}}" style="{{get_Page_user.b14_power}} {{get_Page_user.b14_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b14_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b14_title}}</div>
-                        <div class="p_in_button">{{get_user.b14_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b14_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b14_b_text}}</div>
                     </div>
                 </a>
-                <a class="button" href="{{get_user.b15_api_cho}}{{get_user.b15_api_inp}}" style="{{get_user.b15_power}} {{get_user.b15_color}}">
-                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_user.b15_icons}}"></use></svg></div>
+                <a class="button" href="{{get_Page_user.b15_api_cho}}{{get_Page_user.b15_api_inp}}" style="{{get_Page_user.b15_power}} {{get_Page_user.b15_color}}">
+                    <div href=""><svg class="button_icon" ><use xlink:href="#{{get_Page_user.b15_icons}}"></use></svg></div>
                     <div class="texts_in_button">
-                        <div class="h_in_button">{{get_user.b15_title}}</div>
-                        <div class="p_in_button">{{get_user.b15_b_text}}</div>
+                        <div class="h_in_button">{{get_Page_user.b15_title}}</div>
+                        <div class="p_in_button">{{get_Page_user.b15_b_text}}</div>
                     </div>
                 </a>
             </div>
@@ -244,7 +244,7 @@
         <a href="#" class="popup_area"></a>
         <div class="popup_body">
             <div class="popup_content">
-                <img src="{{get_user.qr_code.url}}" alt="" class="qr_img">
+                <img src="{{get_Page_user.qr_code.url}}" alt="" class="qr_img">
             </div>
         </div>
     </div>

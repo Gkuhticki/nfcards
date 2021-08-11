@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import User
+from .models import Page_user
 # Register your models here.
 
-@admin.register(User)
-class CategoryUser(admin.ModelAdmin):
+@admin.register(Page_user)
+class CategoryPage_user(admin.ModelAdmin):
     list_display = ("id", "my_id", "id_onyx", "name", "email")
     list_display_links = ("name",)
     save_on_top = True
