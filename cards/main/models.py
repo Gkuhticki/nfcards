@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw
 import qrcode
 from io import BytesIO
 from django.core.files.base import ContentFile, File
-import vobject
+
 
 
 # Create your models here.

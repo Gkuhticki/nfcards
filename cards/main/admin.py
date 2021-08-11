@@ -20,7 +20,7 @@ class CategoryUser(admin.ModelAdmin):
         }),
         ("Кнопка 2", {
             "classes": ("collapse",),
-            "fields": (("b2_power", "b2_color", "b2_icons", "b2_api_cho", "b2_title", "b2_b_text", "b2_api_inp"),)
+            "fields": ("b2_power", "b2_color", "b2_icons", "b2_api_cho", "b2_title", "b2_b_text", "b2_api_inp"),
         }),
         ("Кнопка 3", {
             "classes": ("collapse",),
